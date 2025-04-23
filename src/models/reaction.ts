@@ -1,9 +1,10 @@
 import { Schema, Types } from "mongoose";
+import { formatDate } from "../utils/dateFormat.js";
 
 const reactionSchema = new Schema(
   {
     reactionId: {
-      type: Types.ObjectId,
+      type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
     reactionBody: {
@@ -18,13 +19,14 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (timestamp: Date) => timestamp.toISOString(),
+      get: formatDate,
     },
   },
   {
     toJSON: {
       getters: true,
     },
+    id: false,
   }
 );
 

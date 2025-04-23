@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import reactionSchema from "./reaction.js"; // Import the Reaction schema
-
+import { formatDate } from "../utils/dateFormat.js"; // Import the date formatting utility
 const thoughtSchema = new Schema(
   {
     thoughtText: {
@@ -16,7 +16,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (timestamp: Date) => timestamp.toISOString(),
+      get: formatDate,
     },
     reactions: [reactionSchema],
   },
