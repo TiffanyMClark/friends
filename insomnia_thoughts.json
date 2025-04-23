@@ -1,0 +1,90 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-04-22T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2024.1.0",
+  "resources": [
+    {
+      "_id": "wrk_friendsapi_thoughts",
+      "name": "Friends API - Thoughts",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_friendsapi_thoughts",
+      "parentId": "wrk_friendsapi_thoughts",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3001/api"
+      }
+    },
+    {
+      "_id": "req_get_all_thoughts",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Get All Thoughts",
+      "method": "GET",
+      "url": "{{ base_url }}/thoughts"
+    },
+    {
+      "_id": "req_get_thought_by_id",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Get Thought by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/thoughts/THOUGHT_ID_HERE"
+    },
+    {
+      "_id": "req_create_thought",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Create Thought",
+      "method": "POST",
+      "url": "{{ base_url }}/thoughts",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"thoughtText\": \"Here's a new thought!\",\n  \"username\": \"existingUser\",\n  \"userId\": \"USER_ID_HERE\"\n}"
+      }
+    },
+    {
+      "_id": "req_update_thought",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Update Thought",
+      "method": "PUT",
+      "url": "{{ base_url }}/thoughts/THOUGHT_ID_HERE",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"thoughtText\": \"Updated thought content\"\n}"
+      }
+    },
+    {
+      "_id": "req_delete_thought",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Delete Thought",
+      "method": "DELETE",
+      "url": "{{ base_url }}/thoughts/THOUGHT_ID_HERE"
+    },
+    {
+      "_id": "req_add_reaction",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Add Reaction to Thought",
+      "method": "POST",
+      "url": "{{ base_url }}/thoughts/THOUGHT_ID_HERE/reactions",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"reactionBody\": \"This is a reaction!\",\n  \"username\": \"reactUser\"\n}"
+      }
+    },
+    {
+      "_id": "req_delete_reaction",
+      "_type": "request",
+      "parentId": "wrk_friendsapi_thoughts",
+      "name": "Delete Reaction from Thought",
+      "method": "DELETE",
+      "url": "{{ base_url }}/thoughts/THOUGHT_ID_HERE/reactions/REACTION_ID_HERE"
+    }
+  ]
+}

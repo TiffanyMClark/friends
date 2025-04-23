@@ -1,0 +1,86 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-04-22T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2024.1.0",
+  "resources": [
+    {
+      "_id": "wrk_friendsapi",
+      "name": "Friends API",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_friendsapi",
+      "parentId": "wrk_friendsapi",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3001/api"
+      }
+    },
+    {
+      "_id": "req_get_all_users",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Get All Users",
+      "method": "GET",
+      "url": "{{ base_url }}/users"
+    },
+    {
+      "_id": "req_get_user_by_id",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Get User by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/users/USER_ID_HERE"
+    },
+    {
+      "_id": "req_create_user",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Create User",
+      "method": "POST",
+      "url": "{{ base_url }}/users",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"newuser\",\n  \"email\": \"newuser@email.com\"\n}"
+      }
+    },
+    {
+      "_id": "req_update_user",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Update User",
+      "method": "PUT",
+      "url": "{{ base_url }}/users/USER_ID_HERE",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"updateduser\",\n  \"email\": \"updated@email.com\"\n}"
+      }
+    },
+    {
+      "_id": "req_delete_user",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Delete User",
+      "method": "DELETE",
+      "url": "{{ base_url }}/users/USER_ID_HERE"
+    },
+    {
+      "_id": "req_add_friend",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Add Friend",
+      "method": "POST",
+      "url": "{{ base_url }}/users/USER_ID_HERE/friends/FRIEND_ID_HERE"
+    },
+    {
+      "_id": "req_remove_friend",
+      "_type": "request",
+      "parentId": "wrk_friendsapi",
+      "name": "Remove Friend",
+      "method": "DELETE",
+      "url": "{{ base_url }}/users/USER_ID_HERE/friends/FRIEND_ID_HERE"
+    }
+  ]
+}
