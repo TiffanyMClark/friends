@@ -6,7 +6,7 @@ import {
   createUser,
   deleteUser,
   getUserById,
-} from "../../controllers/userController";
+} from "../../controllers/userController.js";
 
 // GET all users
 router.get("/", getAllUsers);
