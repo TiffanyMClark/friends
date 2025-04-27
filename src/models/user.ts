@@ -1,10 +1,12 @@
 import { Schema, model, Types, Document } from "mongoose";
+import { formatDate } from "../utils/dateFormat.js";
 
 export interface IUser extends Document {
   username: string;
   email: string;
   thoughts: Types.ObjectId[];
   friends: Types.ObjectId[];
+  createdAt?: Date;
 }
 
 const userSchema = new Schema<IUser>(
@@ -33,10 +35,16 @@ const userSchema = new Schema<IUser>(
         ref: "User",
       },
     ],
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: formatDate,
+    },
   },
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }
